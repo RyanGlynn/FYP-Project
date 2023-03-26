@@ -1,0 +1,26 @@
+
+<%- include("partials/header"); -%>
+
+<div align="center">
+  <p>
+    <form action="/search" method="GET" class="form-inline">
+      <div class="form-group">
+        <input type="text" name="search" placeholder="Search for a post..." class="form-control">
+        <input type="submit" value="Search" class="btn btn-dark">
+  </p>
+      </div>
+</div>
+
+
+    <p style ="font-size:125%"> <%= startingContent %> </p>
+
+    <h1 align = "center">Latest Posts</h1>
+  <%  posts.forEach(function(post){ %>
+    <h2 style="font-size:200%"><%=post.title%></h2>
+    <p style ="font-size:125%">
+    <%=post.content.substring(0, 100) + " ..."%>
+    <a href="/posts/<%=post._id%>">Read More</a>
+    </p>
+    <% }) %>
+
+<%- include("partials/footer"); -%>
